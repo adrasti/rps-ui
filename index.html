@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    var l = 0
+    var w = 0
+   function kappa() {
+     let a = Math.round(Math.random() * 2)
+     const b = ["rock", "paper", "scissors"]
+     return b[a]
+   }
+   function game(cs, ps=window.prompt()) {
+     if (cs == ps) {
+       return 'draw'
+     }
+     else if (cs.toLowerCase() == 'rock') {
+       if (ps.toLowerCase() == 'paper') {
+        w++
+         return 'you win. paper > rock'
+       }
+       else if (ps.toLowerCase() == 'scissors') {
+        l++
+         return 'you lose. scissors < rock';
+       }
+     }
+     else if (cs.toLowerCase() == 'paper') {
+      if (ps.toLowerCase() == 'rock') {
+        l++
+         return 'you lose. paper > rock'
+       }
+       else if (ps.toLowerCase() == 'scissors') {
+         w++
+         return 'you win. scissors > paper'
+       }
+       
+    }
+      else if (cs.toLowerCase() == 'scissors') { 
+        if (ps.toLowerCase() == 'paper') {
+          l++
+         return 'you lose. paper < scissors'
+       }
+       else if (ps.toLowerCase() == 'rock') {
+         w++
+         return 'you win. rock > scissors'
+       }
+    }
+  }
+  function gams() {
+    l = 0
+    w = 0
+     for (let i = 0; i < 5; i++) {
+       game(kappa())
+     }
+     console.log(l, w)
+   }
+  </script>
+</body>
+</html>

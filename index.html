@@ -1,66 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script type = "text/javascript" src="game.js"></script> 
+  <link rel = "stylesheet" href="./style.css">
   <title>Page Title</title>
   <meta charset="UTF-8"/>
 </head>
 <body>
-  <script>
-    // Your JavaScript goes here!
-    let l = 0
-    let w = 0
-   function computermove() {
-     let a = Math.round(Math.random() * 2)
-     const b = ["rock", "paper", "scissors"]
-     return b[a]
-   }
-   function simulateround(cs, ps=window.prompt()) {
-     if (cs == ps) {
-       return 'draw'
-     }
-     else if (cs == 'rock') {
-       if (ps.toLowerCase() == 'paper') {
-        w++
-         return 'You win. Paper > rock'
-       }
-       else if (ps.toLowerCase() == 'scissors') {
-        l++
-         return 'You lose. Scissors < rock';
-       }
-     }
-     else if (cs == 'paper') {
-      if (ps.toLowerCase() == 'rock') {
-        l++
-         return 'You lose. Rock < paper'
-       }
-       else if (ps.toLowerCase() == 'scissors') {
-         w++
-         return 'You win. Scissors > paper'
-       }
-       
-    }
-      else if (cs == 'scissors') { 
-        if (ps.toLowerCase() == 'paper') {
-          l++
-         return 'You lose. Paper < scissors'
-       }
-       else if (ps.toLowerCase() == 'rock') {
-         w++
-         return 'You win. Rock > scissors'
-       }
-    }
-  }
-  function simulategame() {
-    l = 0
-    w = 0
-     for (let i = 0; i < 5; i++) {
-       simulateround(computermove())
-     }
-     console.log(w, l)
-     if(l===w) console.log('draw')
-     else if(l<w) console.log('you win')
-     else console.log('you lose')
-   }
-  </script>
+<div class = "split left">
+  <div class = "content">
+    <span class = "text">Dwayne "The Rock" Johnson</span>
+    <img class = "player" id = "rock" src = "./images/TheRock.jpg">
+  </div>
+  <div class = "content">
+    <span class = "text">Dwayne "The Paper" Johnson</span>
+    <img class = "player" id = "paper" src = "./images/ThePaper.jpg">
+  </div>
+  <div class = "content">
+    <span class = "text">Dwayne "The Sciss" Johnson</span>
+    <img class = "player" id = "scissors" src = "./images/TheScissors.jpg">
+  </div>
+</div>
+<div class = "split right">
+  <div class = "content">
+    <span class = "text">Dwayne "The Rock" Johnson</span>
+    <img class = "computer" id = "rock1" src = "./images/TheRock.jpg">
+  </div>
+  <div class = "content">
+    <span class = "text">Dwayne "The Rock" Johnson</span>
+    <img class = "computer" id = "paper1" src = "./images/ThePaper.jpg">
+  </div>
+  <div class = "content">
+    <span class = "text">Dwayne "The Scissors" Johnson</span>
+    <img class = "computer" id = "scissors1" src = "./images/TheScissors.jpg">
+  </div>
+</div>
+<span id = "bottom"></span>
+<span id = "top">0 : 0</span>
+<div id = "fore">
+  <span id = "res"></span>
+  <div id = "score"></div>
+  <img id = "gif" src ="">
+  <button id = "again">Play again!</button>
+<script>
+
+  const im = document.querySelectorAll('.player');
+  im.forEach(e => e.addEventListener("click", function() {simulateround(computermove(), e.id)}));
+
+  const again = document.getElementById('again');
+  again.addEventListener('click', reset);
+  
+</script>
 </body>
 </html>
+
